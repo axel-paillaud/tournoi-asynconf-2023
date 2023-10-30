@@ -1,4 +1,4 @@
-# Tournoi Asynconf 2023
+# asynconf-tournoi-2023
 
 This template should help get you started developing with Vue 3 in Vite.
 
