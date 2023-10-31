@@ -2,9 +2,13 @@
 import { ref } from 'vue';
 
 const emit = defineEmits({
-    updateKilometer: ( type ) => {
-        if (Number(type)) return true;
-        else return false;
+    updateKilometer: ( kilometer ) => {
+        if (!isNaN(kilometer) && kilometer >= 0) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 });
 
@@ -27,7 +31,9 @@ const updateKilometer = (event) => {
             name="kilometer" 
             id="kilometer" 
             type="number" 
-            step="5000"/>
+            step="5000"
+            min="0"
+        />
     </div>
 </template>
 
