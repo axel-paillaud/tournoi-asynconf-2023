@@ -6,8 +6,6 @@ import { ref, computed } from 'vue';
 // Data from the calculation form
 const car = ref({});
 
-car.value.passenger = 1;
-
 const updateCar = (payload) => {
     if (payload.type && payload.energy && payload.kilometer && payload.year && payload.passenger) {
         car.value.type = payload.type;
