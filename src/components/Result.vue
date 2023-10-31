@@ -1,4 +1,10 @@
 <script setup>
+const props = defineProps({
+    type: String,
+    energy: String,
+    kilometer: Number,
+    year: Number
+});
 
 </script>
 

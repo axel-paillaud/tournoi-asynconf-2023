@@ -1,51 +1,61 @@
 <script setup>
+import Type from '@/components/Car/Type.vue';
+import Energy from '@/components/Car/Energy.vue';
+import Kilometer from '@/components/Car/Kilometer.vue';
+import Year from '@/components/Car/Year.vue';
+import { ref } from 'vue';
 
+const emit = defineEmits(['updateCar']);
+
+const car = ref({});
+
+function updateType(payload) {
+    car.type = payload;
+    emit('updateCar', car);
+}
+
+function updateEnergy(payload) {
+    car.energy = payload;
+    emit('updateCar', car);
+}
+
+function updateKilometer(payload) {
+    car.kilometer = payload;
+    emit('updateCar', car);
+}
+
+function updateYear(payload) {
+
+    car.year = payload;
+    emit('updateCar', car);
+}
 </script>
 
 <template>
-    <form>
-        <div class="label-container">
-            <label for="type">Type de voiture</label>
-        </div>
-        <div class="input-container">
-            <select class="input-field selector" name="type" id="type">
-                <option value="">Veuillez sélectionner un type de véhicule</option>
-                <option value="light-car">Citadine</option>
-                <option value="convertible-car">Cabriolet</option>
-                <option value="sedan-car">Berline</option>
-                <option value="heavy-car">SUV / 4x4</option>
-            </select>
-        </div>
-        <div class="label-container">
-            <label for="energy">Énergie</label>
-        </div>
-        <div class="input-container">
-            <select class="input-field selector" name="energy" id="energy">
-                <option value="petrol">Veuillez sélectionner un type d'énergie</option>
-                <option value="">Essence</option>
-                <option value="electric">Electrique</option>
-                <option value="gas">Gaz</option>
-                <option value="diesel">Diesel</option>
-                <option value="hybrid">Hybride</option>
-            </select>
-        </div>
-        <div class="label-container">
-            <label for="kilometer">Kilométrage annuel</label>
-        </div>
-        <div class="input-container">
-            <input class="input-field" name="kilometer" id="kilometer" type="number" step="5000"/>
-        </div>
-        <div class="label-container">
-            <label>Année</label>
-        </div>
-        <div class="input-container">
-            <input class="input-field" type="number" step="1" min="1960" max="2023" />
-        </div>
+    <form class="calculation-form">
+        <Type @updateType="updateType" />
+        <Energy @updateEnergy="updateEnergy" />
+        <Kilometer @updateKilometer="updateKilometer" />
+        <Year @updateYear="updateYear" />
+        <!-- <div class="label-container"> -->
+        <!--     <label for="year">Année</label> -->
+        <!-- </div> -->
+        <!-- <div class="input-container"> -->
+        <!--     <input  -->
+        <!--         id="year" -->
+        <!--         name="year" -->
+        <!--         class="input-field"  -->
+        <!--         type="number"  -->
+        <!--         step="1"  -->
+        <!--         min="1960"  -->
+        <!--         max="2023"  -->
+        <!--     /> -->
+        <!-- </div> -->
     </form>
 </template>
 
-<style scoped>
-form {
+<style >
+.calculation-form {
     padding: 48px 96px;
     background-color: white;
     border-radius: 24px 24px 0 0;
