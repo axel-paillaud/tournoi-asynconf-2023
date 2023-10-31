@@ -1,10 +1,14 @@
 <script setup>
-import CalculatorForm from '@/components/CalculatorForm.vue';
+import CalculationForm from '@/components/CalculationForm.vue';
 import Result from '@/components/Result.vue';
+import { ref, computed } from 'vue';
+
+// Data from the calculation form
+const data = ref({});
 </script>
 
 <template>
-    <CalculatorForm />
+    <CalculationForm />
     <Result />
 </template>
 

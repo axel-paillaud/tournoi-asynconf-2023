@@ -8,7 +8,7 @@
             <label for="type">Type de voiture</label>
         </div>
         <div class="input-container">
-            <select class="selector" name="type" id="type">
+            <select class="input-field selector" name="type" id="type">
                 <option value="">Veuillez sélectionner un type de véhicule</option>
                 <option value="light-car">Citadine</option>
                 <option value="convertible-car">Cabriolet</option>
@@ -20,7 +20,7 @@
             <label for="energy">Énergie</label>
         </div>
         <div class="input-container">
-            <select class="selector" name="energy" id="energy">
+            <select class="input-field selector" name="energy" id="energy">
                 <option value="petrol">Veuillez sélectionner un type d'énergie</option>
                 <option value="">Essence</option>
                 <option value="electric">Electrique</option>
@@ -33,13 +33,13 @@
             <label for="kilometer">Kilométrage annuel</label>
         </div>
         <div class="input-container">
-            <input name="kilometer" id="kilometer" type="number" step="5000"/>
+            <input class="input-field" name="kilometer" id="kilometer" type="number" step="5000"/>
         </div>
         <div class="label-container">
             <label>Année</label>
         </div>
         <div class="input-container">
-            <input type="number" step="1" min="1960" max="2023" />
+            <input class="input-field" type="number" step="1" min="1960" max="2023" />
         </div>
     </form>
 </template>
@@ -48,8 +48,9 @@
 form {
     padding: 48px 96px;
     background-color: white;
-    border-radius: 24px 0 0 24px;
+    border-radius: 24px 24px 0 0;
     box-shadow: 6px 6px 10px 2px rgba(167, 138, 67, 0.65);
+    color: var(--color-text);
 }
 
 .label-container {
@@ -57,16 +58,23 @@ form {
 }
 
 .input-container {
-    margin-bottom: 16px;
+    margin-bottom: 32px;
     width: 100%;
+}
+
+.input-field {
+    width: 100%;
+    padding: 8px 16px;
+    background-color: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    color: var(--color-text);
+    font-size: 16px;
 }
 
 .selector {
     width: 100%;
     padding: 8px 16px;
-}
-
-.input {
-    width: 100%;
 }
 </style>

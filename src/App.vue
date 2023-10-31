@@ -1,11 +1,11 @@
 <script setup>
 import Home from '@/components/Home.vue';
+import Title from '@/components/Title.vue';
 </script>
 
 <template>
     <header>
-        <h1>Générateur de taux d'emprunt</h1>
-        <p class="subtitle"> Lorem ipsum dolor sit amet ! </p>
+        <Title />
     </header>
 
     <main>
@@ -18,21 +18,15 @@ import Home from '@/components/Home.vue';
 </template>
 
 <style scoped>
-h1 {
-    font-family: oswald;
-    text-align: center;
-    font-size: 68px;
-}
-
-.subtitle {
-    text-align: center;
+header {
+    margin-bottom: 24px;
 }
 
 main {
     height: 100%;
     padding: 16px;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     gap: 32px;
 }
