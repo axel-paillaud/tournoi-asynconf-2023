@@ -61,6 +61,7 @@ const updatedRate = computed(() => {
 .rate-value {
     font-family: oswald;
     font-size: 68px;
+    white-space: nowrap;
 }
 
 </style>

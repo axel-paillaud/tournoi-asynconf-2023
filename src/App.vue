@@ -30,4 +30,12 @@ main {
     align-items: center;
     gap: 32px;
 }
+
+@media screen and (max-width: 1024px) {
+    main {
+        flex-direction: column;
+        gap: 32px;
+    }
+}
+ 
 </style>

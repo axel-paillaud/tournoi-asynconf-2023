@@ -75,4 +75,10 @@ function updateYear(payload) {
     width: 100%;
     padding: 8px 16px;
 }
+
+@media screen and (max-width: 640px) {
+    .calculation-form {
+        padding: 32px 56px;
+    }
+}
 </style>
