@@ -1,6 +1,6 @@
 <script setup>
 import { ref, watch, computed } from 'vue';
-import { scoreType, scoreEnergy, ratePassenger } from '@/composables/scores.js';
+import { scoreType, scoreEnergy, ratePassenger, computeKilometer, computeYear } from '@/composables/scores.js';
 const props = defineProps({
     car: Object,
     type: String,
@@ -16,27 +16,30 @@ watch(props.car, (oldCar, newCar) => {
     rate.value = ratePassenger[newCar.passenger];
     score.value = scoreType[newCar.type] + scoreEnergy[newCar.energy];
 
-    if (newCar.kilometer <= 10000) score.value += 9;
-    else if (newCar.kilometer <= 15000) score.value += 7;
-    else if (newCar.kilometer <= 20000) score.value += 5;
-    else if (newCar.kilometer <= 25000) score.value += 3;
-    else score.value += 1;
+    // if (newCar.kilometer <= 10000) score.value += 9;
+    // else if (newCar.kilometer <= 15000) score.value += 7;
+    // else if (newCar.kilometer <= 20000) score.value += 5;
+    // else if (newCar.kilometer <= 25000) score.value += 3;
+    // else score.value += 1;
 
-    if (newCar.year <= 1970) score.value += 1;
-    else if (newCar.year <= 1990) score.value += 2;
-    else if (newCar.year <= 1980) score.value += 2;
-    else if (newCar.year <= 2000) score.value += 4;
-    else if (newCar.year <= 2000) score.value += 5;
-    else score.value += 7;
+    score.value += computeKilometer(newCar.kilometer);
+    score.value += computeYear(newCar.year);
+
+    // if (newCar.year <= 1970) score.value += 1;
+    // else if (newCar.year <= 1990) score.value += 2;
+    // else if (newCar.year <= 1980) score.value += 2;
+    // else if (newCar.year <= 2000) score.value += 4;
+    // else if (newCar.year <= 2000) score.value += 5;
+    // else score.value += 7;
 
 });
 
 const updatedRate = computed(() => {
-    if (score.value <= 10) return rate.value + 3; 
-    else if (score.value <= 15) return rate.value + 2.74; 
-    else if (score.value <= 25) return rate.value + 2.52; 
-    else if (score.value <= 33) return rate.value + 2.10; 
-    else return rate.value + 1.85; 
+    if (score.value <= 10) return parseFloat((rate.value + 3).toFixed(2)); 
+    else if (score.value <= 15) return parseFloat((rate.value + 2.74).toFixed(2)); 
+    else if (score.value <= 25) return parseFloat((rate.value + 2.52).toFixed(2)); 
+    else if (score.value <= 33) return parseFloat((rate.value + 2.10).toFixed(2)); 
+    else return parseFloat(rate.value + 1.85).toFixed(2); 
 
 });
 

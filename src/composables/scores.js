@@ -20,18 +20,19 @@ export const ratePassenger = {
     4: -0.53,
 }
 
-export const scoreKilometer = {
-    10000: 9,
-    15000: 7,
-    20000: 5,
-    25000: 3,
-    30000: 1,
+export function computeKilometer(kilometer) {
+    if (kilometer <= 10000) return 9;
+    else if (kilometer <= 15000) return 7;
+    else if (kilometer <= 20000) return 5;
+    else if (kilometer <+ 25000) return 3;
+    return 1;
 }
 
-export const scoreYear = {
-    1960: 1,
-    1970: 2,
-    1990: 4,
-    2000: 5,
-    2010: 7,
+export function computeYear(year) {
+    if (year <= 1970) return 1;
+    else if (year <= 1980) return 2;
+    else if (year <= 2000) return 4;
+    else if (year <= 2010) return 5;
+    else return 7;
 }
+
