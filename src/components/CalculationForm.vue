@@ -3,6 +3,7 @@ import Type from '@/components/Car/Type.vue';
 import Energy from '@/components/Car/Energy.vue';
 import Kilometer from '@/components/Car/Kilometer.vue';
 import Year from '@/components/Car/Year.vue';
+import Passenger from '@/components/Car/Passenger.vue';
 import { ref } from 'vue';
 
 const emit = defineEmits(['updateCar']);
@@ -31,6 +32,12 @@ function updateYear(payload) {
     car.year = payload;
     emit('updateCar', car);
 }
+
+function updatePassenger(payload) {
+    car.passenger = payload;
+    emit('updateCar', car);
+}
+
 </script>
 
 <template>
@@ -39,6 +46,7 @@ function updateYear(payload) {
         <Energy @updateEnergy="updateEnergy" />
         <Kilometer @updateKilometer="updateKilometer" />
         <Year @updateYear="updateYear" />
+        <Passenger @updatePassenger="updatePassenger" />
     </form>
 </template>
 

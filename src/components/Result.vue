@@ -1,6 +1,6 @@
 <script setup>
 import { ref, watch, computed } from 'vue';
-import { scoreType, scoreEnergy, scoreKilometer, scoreYear } from '@/composables/scores.js';
+import { scoreType, scoreEnergy, ratePassenger } from '@/composables/scores.js';
 const props = defineProps({
     car: Object,
     type: String,
@@ -9,10 +9,11 @@ const props = defineProps({
     year: Number,
 });
 
-const rate = ref(null);
+const rate = ref(0);
 const score = ref(0);
 
 watch(props.car, (oldCar, newCar) => {
+    rate.value = ratePassenger[newCar.passenger];
     score.value = scoreType[newCar.type] + scoreEnergy[newCar.energy];
 
     if (newCar.kilometer <= 10000) score.value += 9;
@@ -28,15 +29,14 @@ watch(props.car, (oldCar, newCar) => {
     else if (newCar.year <= 2000) score.value += 5;
     else score.value += 7;
 
-    console.log(score.value);
 });
 
 const updatedRate = computed(() => {
-    if (score.value <= 10) return 3; 
-    else if (score.value <= 15) return 2.74; 
-    else if (score.value <= 25) return 2.52; 
-    else if (score.value <= 33) return 2.10; 
-    else return 1.85; 
+    if (score.value <= 10) return rate.value + 3; 
+    else if (score.value <= 15) return rate.value + 2.74; 
+    else if (score.value <= 25) return rate.value + 2.52; 
+    else if (score.value <= 33) return rate.value + 2.10; 
+    else return rate.value + 1.85; 
 
 });
 

@@ -13,6 +13,13 @@ export const scoreEnergy = {
     "hybrid": 7,
 }
 
+export const ratePassenger = {
+    1: 0.11,
+    2: -0.17,
+    3: -0.29,
+    4: -0.53,
+}
+
 export const scoreKilometer = {
     10000: 9,
     15000: 7,

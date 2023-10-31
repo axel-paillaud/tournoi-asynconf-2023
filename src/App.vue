@@ -19,20 +19,20 @@ import Title from '@/components/Title.vue';
 
 <style scoped>
 header {
-    margin-bottom: 24px;
+    margin-bottom: 64px;
 }
 
 main {
     height: 100%;
-    padding: 16px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
-    gap: 32px;
+    gap: 24px;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 768px) {
     main {
+        padding: 16px;
         flex-direction: column;
         gap: 32px;
     }
