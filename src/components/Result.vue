@@ -16,21 +16,8 @@ watch(props.car, (oldCar, newCar) => {
     rate.value = ratePassenger[newCar.passenger];
     score.value = scoreType[newCar.type] + scoreEnergy[newCar.energy];
 
-    // if (newCar.kilometer <= 10000) score.value += 9;
-    // else if (newCar.kilometer <= 15000) score.value += 7;
-    // else if (newCar.kilometer <= 20000) score.value += 5;
-    // else if (newCar.kilometer <= 25000) score.value += 3;
-    // else score.value += 1;
-
     score.value += computeKilometer(newCar.kilometer);
     score.value += computeYear(newCar.year);
-
-    // if (newCar.year <= 1970) score.value += 1;
-    // else if (newCar.year <= 1990) score.value += 2;
-    // else if (newCar.year <= 1980) score.value += 2;
-    // else if (newCar.year <= 2000) score.value += 4;
-    // else if (newCar.year <= 2000) score.value += 5;
-    // else score.value += 7;
 
 });
 
