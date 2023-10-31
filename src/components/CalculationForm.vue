@@ -9,6 +9,9 @@ const emit = defineEmits(['updateCar']);
 
 const car = ref({});
 
+// Each form field emit data when input value change.
+// We can then pass value from Home to Result component, to calculate the rate
+
 function updateType(payload) {
     car.type = payload;
     emit('updateCar', car);
@@ -25,7 +28,6 @@ function updateKilometer(payload) {
 }
 
 function updateYear(payload) {
-
     car.year = payload;
     emit('updateCar', car);
 }
@@ -37,20 +39,6 @@ function updateYear(payload) {
         <Energy @updateEnergy="updateEnergy" />
         <Kilometer @updateKilometer="updateKilometer" />
         <Year @updateYear="updateYear" />
-        <!-- <div class="label-container"> -->
-        <!--     <label for="year">Année</label> -->
-        <!-- </div> -->
-        <!-- <div class="input-container"> -->
-        <!--     <input  -->
-        <!--         id="year" -->
-        <!--         name="year" -->
-        <!--         class="input-field"  -->
-        <!--         type="number"  -->
-        <!--         step="1"  -->
-        <!--         min="1960"  -->
-        <!--         max="2023"  -->
-        <!--     /> -->
-        <!-- </div> -->
     </form>
 </template>
 
